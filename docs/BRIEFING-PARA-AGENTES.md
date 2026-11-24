@@ -59,7 +59,7 @@ As **Fases 0 a 5** foram implementadas e validadas ponta a ponta em homologaçã
 
 ### Frontend Cidadão (`apps/web/src/`)
 - **Proxy seguro (`GET`-only):** [`apps/web/src/app/api/v1/[...path]/route.ts`](../apps/web/src/app/api/v1/%5B...path%5D/route.ts)
-- **Páginas (`apps/web/src/app/`):** `/`, `/vereadores`, `/vereadores/[id]`, `/custo-mandato`, `/despesas` (`/dinheiro` redireciona para `/despesas`), `/diarias`, `/sessoes`, `/sessoes/[id]`, `/materias/[id]`, `/boletins`, `/busca`, `/bairros` (inclui `MapaBairrosSvg.tsx`), `/legislacao`, `/legislacao/[id]`, `/comparativo`, `/dados-abertos`, `/como-calculamos`, `/cobertura-e-limitacoes`, `/sobre`, `/correcoes`.
+- **Páginas (`apps/web/src/app/` — 25 rotas no build Next.js, cobrindo 21/21 endpoints):** `/`, `/vereadores`, `/vereadores/[id]` (inclui pessoal do gabinete), `/custo-mandato`, `/despesas` (`/dinheiro` redireciona para `/despesas`), `/folha`, `/diarias`, `/sessoes`, `/sessoes/[id]`, `/materias`, `/materias/[id]`, `/boletins`, `/busca`, `/bairros` (inclui `MapaBairrosSvg.tsx`), `/legislacao`, `/legislacao/[id]`, `/comparativo`, `/dados-abertos`, `/como-calculamos`, `/cobertura-e-limitacoes`, `/sobre`, `/correcoes`.
 - **Componentes e utilitários (`components/` e `lib/`):** `AvatarVereador`, `BotaoCopiar` (WCAG `aria-live`), `DadoComFonte`, `EstadoAusente`, `GlossarioTooltip`, `PlotChart` (Observable Plot + tabela acessível + CSV), `ProvenienciaBox`, `ResumoCidadaoBox`, `SiteHeader`, `SiteFooter`, `api.ts`, `cardCanvas.ts` (Canvas 2D PNG `1080×1350` e `1080×1920`), `csv.ts`, `format.ts`, `types.ts`.
 
 ### Scripts, Skills e Automação

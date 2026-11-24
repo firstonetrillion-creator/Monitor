@@ -51,7 +51,7 @@ flowchart LR
   Raw[("data/raw/ imutável\nSHA-256 + Manifestos\n(gitignored)")]
   DB[("PostgreSQL 16\nMigrações 0001..0003\nFTS portuguese + GIN")]
   API["apps/api\nFastAPI v1 (21 endpoints GET)\nSomente leitura + Rate Limit + LGPD"]
-  Web["apps/web\nNext.js 16 + Tailwind CSS 4\nObservable Plot + Canvas 2D (23 rotas)"]
+  Web["apps/web\nNext.js 16 + Tailwind CSS 4\nObservable Plot + Canvas 2D (25 rotas)"]
 
   Fontes --> C1
   C1 --> Raw
@@ -84,10 +84,10 @@ Para os detalhes do modelo de dados, escolhas técnicas e desafios conhecidos, v
 
 ## Rotas Web e Endpoints da API Pública
 
-### Aplicação Web (`apps/web` — 23 rotas no build Next.js)
-- **Cidadão e Busca:** `/` (Home com 3 perguntas + busca rápida), `/busca` (Full-Text Search unificado), `/bairros` (mapa vetorial SVG local + tabela + CSV), `/boletins` (alertas WhatsApp `<= 400` chars + gerador Canvas 2D de cards PNG para `@cerradoaberto`).
-- **Legislativo:** `/vereadores`, `/vereadores/[id]` (presenças, proposições, votos e custo da estrutura do mandato), `/sessoes`, `/sessoes/[id]`, `/materias/[id]`, `/legislacao`, `/legislacao/[id]`.
-- **Finanças Públicas e Contexto:** `/custo-mandato`, `/despesas` (`/dinheiro` redireciona para `/despesas`), `/diarias`, `/comparativo`.
+### Aplicação Web (`apps/web` — 25 rotas no build Next.js, cobrindo 21/21 endpoints)
+- **Cidadão e Busca:** `/` (Home com 3 perguntas + busca rápida), `/busca` (Full-Text Search unificado), `/bairros` (mapa vetorial SVG local + tabela + CSV + filtro por vereador), `/boletins` (alertas WhatsApp `<= 400` chars + gerador Canvas 2D de cards PNG para `@cerradoaberto`).
+- **Legislativo:** `/vereadores`, `/vereadores/[id]` (presenças, proposições, votos, pessoal do gabinete e custo da estrutura do mandato), `/sessoes`, `/sessoes/[id]`, `/materias`, `/materias/[id]`, `/legislacao`, `/legislacao/[id]`.
+- **Finanças Públicas e Contexto:** `/custo-mandato`, `/despesas` (`/dinheiro` redireciona para `/despesas`), `/folha` (folha nominal e lotação por gabinete sem CPF), `/diarias`, `/comparativo`.
 - **Transparência, Metodologia e Dados Abertos:** `/dados-abertos`, `/como-calculamos`, `/cobertura-e-limitacoes`, `/sobre`, `/correcoes`, além do proxy somente leitura `/api/v1/[...path]`.
 
 ### API Pública Somente Leitura (`apps/api` — 21 endpoints `GET`)
