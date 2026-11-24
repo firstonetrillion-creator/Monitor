@@ -1,0 +1,49 @@
+{
+  "0-69zewa": {
+    "total": "406",
+    "dados": [
+      {
+        "tabela": "leis",
+        "id": "407",
+        "numero": "3577",
+        "ementa": "RECONHECE A PAROQUIA NOSSA SENHORA DA APARECIDA E PAROQUIA SANTADA COMO PATRIMÔNIO HISTÓRICO, CULTURAL E RELIGIOSO DO MUNICÍPIO DE INHUMAS-GO, AUTORIZA A CELEBRAÇÃO DE CONVÊNIOS, TERMOS DE COOPERAÇÃO, PARCERIAS E AUXÍLIOS, RECONHECE AS FESTIVIDADES RELIGIOSAS COMO MANIFESTAÇÃO TRADICIONAL INTEGRANTE DO CALENDÁRIO OFICIAL DE EVENTOS DO MUNICÍPIO E DÁ OUTRAS PROVIDÊNCIAS.",
+        "texto": null,
+        "data_publicacao": "2026-09-22",
+        "data_publicacao_portal": null,
+        "categoria": "1",
+        "midia_id": null,
+        "tipo": "1",
+        "desativado": "0",
+        "oculto": "0",
+        "covid": "0",
+        "ano_referencia": null,
+        "categoria_descricao": "Lei Ordinária",
+        "total_anexos": "1",
+        "total": "407",
+        "aplica": [],
+        "recebe": []
+      },
+      {
+        "tabela": "leis",
+        "id": "406",
+        "numero": "3576",
+        "ementa": "INSTITUI E AUTORIZA O PODER EXECUTIVO MUNICIPAL A CONCEDER AUXÍLIO FINANCEIRO E PREMIAÇÃO NO ÂMBITO DO PROGRAMA DE INCENTIVO À REPRESENTAÇÃO CIENTÍFICA E EDUCACIONAL DE INHUMAS (PIRCE-I), E DÁ OUTRAS PROVIDÊNCIAS",
+        "texto": null,
+        "data_publicacao": "2026-08-17",
+        "data_publicacao_portal": null,
+        "categoria": "1",
+        "midia_id": null,
+        "tipo": "1",
+        "desativado": "0",
+        "oculto": "0",
+        "covid": "0",
+        "ano_referencia": null,
+        "categoria_descricao": "Lei Ordinária",
+        "total_anexos": "1",
+        "total": "407",
+        "aplica": [],
+        "recebe": []
+      }
+    ]
+  }
+}

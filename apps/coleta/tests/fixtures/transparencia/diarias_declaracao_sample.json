@@ -1,0 +1,28 @@
+{
+  "api_centi_diarias_2026": [],
+  "declaracao_nao_concessao": {
+    "url": "https://acessoainformacao.inhumas.go.leg.br/cidadao/p/declaracao/16",
+    "link_origem": "https://acessoainformacao.inhumas.go.leg.br/informacao/mp/id=23",
+    "titulo": "Declaração \"Não Concessão de Diárias\"",
+    "orgao": "Câmara Municipal de Inhumas",
+    "texto_declaracao": "Declaro para os devidos fins que, esta instituição, NÃO realizou a concessão de diárias no respectivo período:",
+    "periodos_declarados_2026": [
+      {
+        "data_inicio": "2026-03-01",
+        "data_fim": "2026-04-14",
+        "descricao_literal": "De 01 de Março de 2026 à 14 de Abril de 2026"
+      },
+      {
+        "data_inicio": "2026-05-01",
+        "data_fim": "2026-10-22",
+        "descricao_literal": "De 01 de Maio de 2026 até 22 de Outubro de 2026"
+      }
+    ],
+    "periodos_declarados_anteriores_amostra": [
+      "De 01 de Outubro de 2025 à 30 de Novembro de 2025",
+      "De 01 de Julho de 2025 à 31 de Julho de 2025",
+      "De 01 de Janeiro de 2025 à 31 de Janeiro de 2025",
+      "De 01 de Dezembro de 2024 à 31 de Dezembro de 2024"
+    ]
+  }
+}

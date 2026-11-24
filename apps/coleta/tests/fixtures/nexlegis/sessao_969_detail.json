@@ -1,0 +1,158 @@
+{
+  "id": 969,
+  "numero": "043",
+  "ano": 2026,
+  "data": "2026-11-10",
+  "url": null,
+  "informacoes": {},
+  "tipo_id": 1,
+  "ata_sessao": {},
+  "publicar_ata_sessao": false,
+  "horario_abertura": "16:00",
+  "data_encerramento": "2026-11-10",
+  "horario_encerramento": "18:05",
+  "presidente_id": 81,
+  "sessao_legislativa_id": 3,
+  "quorum": 0,
+  "inicio_sessao": "2026-11-10 16:32:14",
+  "alterar_ata": true,
+  "habilitar_roteiro": "s",
+  "nome_sessao": "Sessão Ordinária 043/2026",
+  "midias": [
+    {
+      "id": 3949,
+      "name": "SESSÃO ORDINÁRIA (Todas) (37)",
+      "file_name": "SESSÃO-ORDINÁRIA-(Todas)-(37).pdf",
+      "url": "https://nexlegis.s3.us-east-2.amazonaws.com/cliente/cm_inhumas/3949/SESS%C3%83O-ORDIN%C3%81RIA-%28Todas%29-%2837%29.pdf",
+      "size": 182386,
+      "mime_type": "application/pdf",
+      "created_at": "2026-11-10 13:56:09",
+      "tipo": null
+    }
+  ],
+  "slug": "sessao-ordinaria-043-2026",
+  "tipo": {
+    "id": 1,
+    "descricao": "Sessão Ordinária"
+  },
+  "presenca": [
+    {
+      "sessao_id": 969,
+      "vereador_id": 2,
+      "situacao_id": 3,
+      "situacao": {
+        "id": 3,
+        "descricao": "Presente"
+      },
+      "vereador": {
+        "id": 2,
+        "nome": "ADRIANO MOREIRA",
+        "nome_politico": "ADRIANO MOREIRA",
+        "nome_exibicao": "ADRIANO MOREIRA",
+        "slug": "adriano-moreira",
+        "email_publico": "adrianomoreiramoura@gmail.com",
+        "avatar": "https://nexlegis.s3.us-east-2.amazonaws.com/cliente/cm_inhumas/2/V8-e1622034716803-500x500.jpeg"
+      }
+    },
+    {
+      "sessao_id": 969,
+      "vereador_id": 114,
+      "situacao_id": 3,
+      "situacao": {
+        "id": 3,
+        "descricao": "Presente"
+      },
+      "vereador": {
+        "id": 114,
+        "nome": "CLODOALDO COSTA",
+        "nome_politico": "CLODOALDO COSTA",
+        "nome_exibicao": "CLODOALDO COSTA",
+        "slug": "clodoaldo-costa",
+        "email_publico": "clodoaldo@hotmail.com",
+        "avatar": "https://nexlegis.s3.us-east-2.amazonaws.com/cliente/cm_inhumas/772/CLODOALDO.jpg"
+      }
+    }
+  ],
+  "pautas": [
+    {
+      "sessao_id": 969,
+      "materia_id": 2771,
+      "tipo_id": 1,
+      "turno": 1,
+      "created_at": "2026-11-10 15:04:54",
+      "ordem": 1,
+      "conjunto_id": null,
+      "votacao_id": 2469,
+      "unanime": false,
+      "has_votos": true,
+      "tipo_pauta": {
+        "id": 1,
+        "descricao": "Ordem do dia"
+      },
+      "materia": {
+        "id": 2771,
+        "numero": "042",
+        "ano": 2026,
+        "protocolo": null,
+        "autoria": 2,
+        "ementa": "ATA DA 42ª SESSÃO ORDINÁRIA DA CÂMARA MUNICIPAL DE INHUMAS DO ANO LEGISLATIVO DE 2026.",
+        "nome_materia": "ATA DA SESSÃO 042/2026",
+        "slug": "ata-da-sessao-042-2026",
+        "tipo_id": 144,
+        "tipo": {
+          "id": 144,
+          "descricao": "ATA DA SESSÃO",
+          "max_turnos": 1
+        }
+      },
+      "votacao": {
+        "id": 2469,
+        "sessao_id": 969,
+        "materia_id": 2771,
+        "unanime": false,
+        "discussed_at": "2026-11-10 16:44:39",
+        "started_at": "2026-11-10 16:47:25",
+        "closed_at": "2026-11-10 16:49:03",
+        "tempo_decorrido": 165,
+        "paused_at": null,
+        "tipo_turno_id": 4,
+        "apresentada": false,
+        "pedido_vista": null,
+        "vereador_id": null,
+        "has_votos": true,
+        "votos": [
+          {
+            "votacao_id": 2469,
+            "vereador_id": 2,
+            "voto": {
+              "id": 1,
+              "descricao": "Favorável"
+            },
+            "vereador": {
+              "id": 2,
+              "nome": "ADRIANO MOREIRA",
+              "nome_politico": "ADRIANO MOREIRA",
+              "nome_exibicao": "ADRIANO MOREIRA",
+              "slug": "adriano-moreira"
+            }
+          },
+          {
+            "votacao_id": 2469,
+            "vereador_id": 5,
+            "voto": {
+              "id": 1,
+              "descricao": "Favorável"
+            },
+            "vereador": {
+              "id": 5,
+              "nome": "EDIVALDO JUNIOR",
+              "nome_politico": "EDIVALDO JUNIOR",
+              "nome_exibicao": "EDIVALDO JUNIOR",
+              "slug": "edivaldo-junior"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

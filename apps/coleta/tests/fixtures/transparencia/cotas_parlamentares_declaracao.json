@@ -1,0 +1,39 @@
+{
+  "0-nzaai8": {
+    "ano": "2026",
+    "mes": "11"
+  },
+  "1-jwmge": [
+    {
+      "id": "1",
+      "valor": "CAMARA MUNICIPAL DE INHUMAS",
+      "principal": "1"
+    }
+  ],
+  "2-bz6pa": {
+    "total": 1,
+    "dados": [
+      {
+        "tabela": "declaracoes",
+        "empenho": "11",
+        "ficha": null,
+        "orgao_empenho": null,
+        "orgao": null,
+        "ano": null,
+        "numero": null,
+        "data": "01/01/2020",
+        "data_fim": null,
+        "cpf_cnpj": null,
+        "fornecedor": "<strong>    <strong>A Câmara de Inhumas, declara Inexistência de Regulamentação ou valores\n    relativos às cotas para exercício da atividade parlamentar ou verba indenizatória\n    no período consultado, 01 de Janeiro de 2020 até 22 de Outubro de 2026. <u>Visualizar Declaração.</u></strong></strong>",
+        "valor": "2024-02-21 15:17:09",
+        "descricao": "2026-10-22 11:37:04",
+        "desativado": "0",
+        "total": "1"
+      }
+    ],
+    "ultimoGasto": {
+      "ano": "2026",
+      "mes": "11"
+    }
+  }
+}

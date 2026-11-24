@@ -1,0 +1,83 @@
+{
+  "data": [
+    {
+      "id": 969,
+      "numero": "043",
+      "ano": 2026,
+      "data": "2026-11-10",
+      "url": null,
+      "informacoes": {},
+      "tipo_id": 1,
+      "ata_sessao": {},
+      "publicar_ata_sessao": false,
+      "horario_abertura": "16:00",
+      "data_encerramento": "2026-11-10",
+      "horario_encerramento": "18:05",
+      "presidente_id": 81,
+      "sessao_legislativa_id": 3,
+      "quorum": 0,
+      "inicio_sessao": "2026-11-10 16:32:14",
+      "alterar_ata": true,
+      "nome_sessao": "Sessão Ordinária 043/2026",
+      "midias": [
+        {
+          "id": 3949,
+          "name": "SESSÃO ORDINÁRIA (Todas) (37)",
+          "file_name": "SESSÃO-ORDINÁRIA-(Todas)-(37).pdf",
+          "url": "https://nexlegis.s3.us-east-2.amazonaws.com/cliente/cm_inhumas/3949/SESS%C3%83O-ORDIN%C3%81RIA-%28Todas%29-%2837%29.pdf",
+          "size": 182386,
+          "mime_type": "application/pdf",
+          "created_at": "2026-11-10 13:56:09",
+          "tipo": null
+        }
+      ],
+      "slug": "sessao-ordinaria-043-2026",
+      "tipo": {
+        "id": 1,
+        "descricao": "Sessão Ordinária"
+      }
+    },
+    {
+      "id": 1002,
+      "numero": "017",
+      "ano": 2026,
+      "data": "2026-11-10",
+      "url": null,
+      "informacoes": {},
+      "tipo_id": 2,
+      "ata_sessao": {},
+      "publicar_ata_sessao": false,
+      "horario_abertura": "18:10",
+      "data_encerramento": "2026-11-10",
+      "horario_encerramento": null,
+      "presidente_id": 81,
+      "sessao_legislativa_id": 3,
+      "quorum": 0,
+      "inicio_sessao": "2026-11-10 18:14:53",
+      "alterar_ata": true,
+      "nome_sessao": "Sessão Extraordinária 017/2026",
+      "midias": [],
+      "slug": "sessao-extraordinaria-017-2026",
+      "tipo": {
+        "id": 2,
+        "descricao": "Sessão Extraordinária"
+      }
+    }
+  ],
+  "total": 393,
+  "links": {
+    "first": "https://inhumas.nexlegis.com.br/api/sessoes?page=1",
+    "last": "https://inhumas.nexlegis.com.br/api/sessoes?page=197",
+    "prev": null,
+    "next": "https://inhumas.nexlegis.com.br/api/sessoes?page=2"
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 197,
+    "path": "https://inhumas.nexlegis.com.br/api/sessoes",
+    "per_page": 2,
+    "to": 2,
+    "total": 393
+  }
+}

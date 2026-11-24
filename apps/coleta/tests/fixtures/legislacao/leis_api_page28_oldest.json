@@ -1,0 +1,49 @@
+{
+  "0-p1vif4": {
+    "total": "406",
+    "dados": [
+      {
+        "tabela": "leis",
+        "id": "86",
+        "numero": "2032",
+        "ementa": "ESTATUTO DOS SERVIDORES PÚBLICOS MUNICIPAIS ",
+        "texto": null,
+        "data_publicacao": "1990-11-29",
+        "data_publicacao_portal": "2025-04-24",
+        "categoria": "1",
+        "midia_id": null,
+        "tipo": "1",
+        "desativado": "0",
+        "oculto": "0",
+        "covid": "0",
+        "ano_referencia": null,
+        "categoria_descricao": "Lei Ordinária",
+        "total_anexos": "1",
+        "total": "407",
+        "aplica": [],
+        "recebe": []
+      },
+      {
+        "tabela": "leis",
+        "id": "1",
+        "numero": "001",
+        "ementa": "LEI ORGÂNICA DO MUNICÍPIO DE INHUMAS.",
+        "texto": null,
+        "data_publicacao": "1990-04-05",
+        "data_publicacao_portal": null,
+        "categoria": "2",
+        "midia_id": null,
+        "tipo": "1",
+        "desativado": "0",
+        "oculto": "0",
+        "covid": "0",
+        "ano_referencia": null,
+        "categoria_descricao": "Lei Orgânica",
+        "total_anexos": "3",
+        "total": "407",
+        "aplica": [],
+        "recebe": []
+      }
+    ]
+  }
+}

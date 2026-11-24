@@ -1,0 +1,46 @@
+{
+  "0-r9ta1s": {
+    "total": 22,
+    "dados": [
+      {
+        "total": "22",
+        "previsao_mensal": null,
+        "tipo_text": "Despesa",
+        "chave": "a938c27ee11294a58ef6e5ea093ce1c0",
+        "orgao": "2",
+        "tipo": "2",
+        "descricao": "CAMARA MUL DE INHUMAS - DEVOLUCAO DUODECIMO",
+        "beneficiario": null,
+        "data": "2026-10-28",
+        "valor": "2000.00",
+        "desativado": "0"
+      },
+      {
+        "total": "22",
+        "previsao_mensal": "911179.79",
+        "tipo_text": "Receita",
+        "chave": "f128abbd4a6b10b6a517cf367af483d2",
+        "orgao": "2",
+        "tipo": "1",
+        "descricao": "CAMARA MUNICIPAL DE INHUMAS - DUODECIMO",
+        "beneficiario": null,
+        "data": "2026-10-20",
+        "valor": "911179.79",
+        "desativado": "0"
+      },
+      {
+        "total": "22",
+        "previsao_mensal": "911179.79",
+        "tipo_text": "Receita",
+        "chave": "f94bbdecd6633925d42f3f0c5a9f7b39",
+        "orgao": "2",
+        "tipo": "1",
+        "descricao": "CAMARA MUNICIPAL DE INHUMAS - DUODECIMO",
+        "beneficiario": null,
+        "data": "2026-09-18",
+        "valor": "911179.79",
+        "desativado": "0"
+      }
+    ]
+  }
+}

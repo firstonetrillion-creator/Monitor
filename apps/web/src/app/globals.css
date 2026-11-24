@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --surface-alt: #f3ede3;
+  --border: #dfd6c7;
+  --ink: #1b241e;
+  --ink-muted: #4a574e;
+  --primary: #1f4e3d;
+  --primary-ink: #ffffff;
+  --accent: #b44b2a;
+  --highlight: #d99b16;
+  --status-ok-bg: #e7f3ec;
+  --status-ok-ink: #184a36;
+  --status-warn-bg: #fdf1e6;
+  --status-warn-ink: #8b381d;
+  --status-null-bg: #efebe3;
+  --status-null-ink: #4a574e;
+  accent-color: var(--primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111613;
+    --surface: #1a211d;
+    --surface-alt: #222b26;
+    --border: #2f3b34;
+    --ink: #f3efe8;
+    --ink-muted: #b6c2b9;
+    --primary: #52b788;
+    --primary-ink: #0e1c15;
+    --accent: #e07a5f;
+    --highlight: #f2b705;
+    --status-ok-bg: #193226;
+    --status-ok-ink: #8ce0b3;
+    --status-warn-bg: #362119;
+    --status-warn-ink: #f4a58c;
+    --status-null-bg: #242b27;
+    --status-null-ink: #b6c2b9;
+  }
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Foco visível de alto contraste para navegação por teclado */
+:focus-visible {
+  outline: 3px solid var(--highlight);
+  outline-offset: 2px;
+}
+
+/* Link de salto para acessibilidade */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--primary);
+  color: var(--primary-ink);
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}

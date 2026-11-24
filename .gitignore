@@ -1,0 +1,46 @@
+# Dados brutos locais, banco portátil e ambientes virtuais
+data/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Segredos e variáveis locais (preservar .env.example)
+.env
+.env.*
+!.env.example
+
+# Frontend (Next.js / Node / Playwright)
+node_modules/
+.next/
+out/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+*.tsbuildinfo
+
+# Binários compilados localmente (código-fonte em scripts/launcher/)
+*.exe
+CerradoAberto.exe
+
+# Logs e arquivos de sistema
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Capturas redundantes de homologação (mantemos no Git apenas seleção enxuta da Fase 5 para o README)
+docs/fase-3/capturas/
+docs/fase-4/capturas/
+docs/fase-5/capturas/*
+!docs/fase-5/capturas/01-home-desktop.png
+!docs/fase-5/capturas/03-vereador-perfil-desktop.png
+!docs/fase-5/capturas/05-despesas-desktop.png
+!docs/fase-5/capturas/15-bairros-desktop.png
+!docs/fase-5/capturas/18-comparativo-desktop.png
+!docs/fase-5/capturas/card-instagram-slide-1-1080x1350.png

@@ -1,0 +1,136 @@
+{
+  "data": [
+    {
+      "id": 2770,
+      "numero": "312",
+      "ano": 2026,
+      "protocolo": null,
+      "autoria": 2,
+      "ementa": "SOLICITA DO EXECUTIVO E TAMBÉM DA PRESIDÊNCIA DESTA CASA LEGISLATIVA, QUE SEJAM REALIZADOS ESTUDOS TÉCNICOS E ADOTADAS AS PROVIDÊNCIAS NECESSÁRIAS PARA A ADESÃO E IMPLANTAÇÃO DO “SISTEMA ELETRÔNICO DE INFORMAÇÕES – SEI”, TANTO NO ÂMBITO DO PODER EXECUTIVO MUNICIPAL QUANTO NO ÂMBITO DA CÂMARA MUNICIPAL DE INHUMAS. REQUER, AINDA, QUE OS DOIS PODERES AVALIEM A POSSIBILIDADE DE FORMALIZAÇÃO DOS RESPECTIVOS INSTRUMENTOS DE ADESÃO E COOPERAÇÃO NECESSÁRIOS, BUSCANDO A UTILIZAÇÃO DO SISTEMA COMO FERRAMENTA OFICIAL PARA PRODUÇÃO, ASSINATURA, TRAMITAÇÃO, ARMAZENAMENTO E GESTÃO DE DOCUMENTOS E PROCESSOS ADMINISTRATIVOS ELETRÔNICOS.",
+      "data_publicacao": "2026-11-10",
+      "tipo_id": 5,
+      "tipo": {
+        "id": 5,
+        "descricao": "Requerimento",
+        "max_turnos": 1,
+        "max_turnos_list": [
+          {
+            "id": 15,
+            "tipo_id": 5,
+            "max_turnos": 1,
+            "created_at": "2025-06-23 17:29:56",
+            "updated_at": "2025-06-23 17:29:56"
+          }
+        ]
+      },
+      "local_origem": "Plenário",
+      "local_destino": "Secretaria Geral",
+      "situacao": "Aprovada",
+      "ultima_movimentacao": "2026-11-10",
+      "nome_materia": "Requerimento 312/2026",
+      "materia_vinculada": [],
+      "materia_relacionada": [],
+      "vereadores": [
+        {
+          "materia_id": 2770,
+          "vereador_id": 149,
+          "vereador": {
+            "id": 149,
+            "nome": "PROF°.KELVY FERNANDES",
+            "nome_politico": "PROFESSOR KELVY FERNANDES",
+            "nome_exibicao": "PROF°.KELVY FERNANDES"
+          }
+        }
+      ],
+      "relatores": [],
+      "comissoes": [],
+      "midias": [
+        {
+          "id": 3948,
+          "name": "REQ 312 KELVY",
+          "file_name": "REQ-312-KELVY.pdf",
+          "url": "https://nexlegis.s3.us-east-2.amazonaws.com/cliente/cm_inhumas/3948/REQ-312-KELVY.pdf",
+          "size": 2086878,
+          "mime_type": "application/pdf",
+          "created_at": "2026-11-10 10:53:24"
+        }
+      ],
+      "slug": "requerimento-312-2026",
+      "envelopes": {},
+      "tramitacao": {
+        "id": 5080,
+        "materia_id": 2770,
+        "local_origem_id": 104,
+        "local_destino_id": 110,
+        "situacao_id": 102,
+        "data": "2026-11-10",
+        "descricao_complementar": null,
+        "prioridade": 1,
+        "prazo_id": 3,
+        "prazo_encerramento": null,
+        "justificativa": "",
+        "nivel_acesso": 1,
+        "status_id": 1,
+        "prioridade_descricao": "ORDINÁRIO",
+        "nivel_acesso_descricao": "PUBLICO",
+        "prazo_descricao": "EM_ANDAMENTO",
+        "local_origem": {
+          "id": 104,
+          "descricao": "Plenário"
+        },
+        "local_destino": {
+          "id": 110,
+          "descricao": "Secretaria Geral"
+        },
+        "situacao": {
+          "id": 102,
+          "descricao": "Aprovada"
+        }
+      },
+      "sessoes": [
+        {
+          "id": 969,
+          "numero": "043",
+          "ano": 2026,
+          "data": "2026-11-10",
+          "nome_sessao": "Sessão Ordinária 043/2026",
+          "slug": "sessao-ordinaria-043-2026",
+          "pivot": {
+            "materia_id": 2770,
+            "sessao_id": 969
+          }
+        }
+      ],
+      "votacoes": [
+        {
+          "id": 2485,
+          "sessao_id": 969,
+          "materia_id": 2770,
+          "unanime": false,
+          "discussed_at": "2026-11-10 17:59:45",
+          "started_at": "2026-11-10 17:59:58",
+          "closed_at": "2026-11-10 18:03:41",
+          "tempo_decorrido": 13,
+          "paused_at": null,
+          "tipo_turno_id": 15,
+          "apresentada": false,
+          "pedido_vista": null,
+          "vereador_id": null,
+          "has_votos": true
+        }
+      ]
+    }
+  ],
+  "total": 2716,
+  "current_page": 1,
+  "last_page": 2716,
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 2716,
+    "path": "https://inhumas.nexlegis.com.br/api/materias",
+    "per_page": 1,
+    "to": 1,
+    "total": 2716
+  }
+}

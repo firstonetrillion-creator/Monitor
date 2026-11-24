@@ -1,0 +1,27 @@
+# Security & LGPD Review — Cerrado Aberto
+
+## Scope
+- **Date and reviewer**:
+- **Mode**: repository baseline / diff
+- **Paths reviewed / excluded**:
+- **Trust boundaries**: (Nexlegis API, CENTI/NúcleoGov Portal da Transparência, Legislação S3 PDFs, PostgreSQL 16, FastAPI v1, Next.js static export)
+
+## Coverage and Evidence
+- **Commands & static checks executed**:
+- **LGPD / zero-CPF verification**:
+- **Repository working-tree preservation check**:
+
+## Findings
+
+### {{ID}} — {{title}}
+- **Severity**: CRITICAL / HIGH / MEDIUM / LOW
+- **Confidence**: high / medium / low (`confirmed` / `needs validation`)
+- **Location**: `file:line`
+- **Reachable entry-to-operation path**:
+- **Concrete impact & failure scenario**:
+- **Narrow proposed correction**:
+- **Next validation command**:
+
+## Remaining Work and Limitations
+- **Unverified hypotheses**:
+- **Hardening suggestions (non-vulnerability)**:

@@ -1,0 +1,40 @@
+{
+  "ano": 2020,
+  "autoria": 1,
+  "comissoes": [],
+  "data_publicacao": "2020-10-07",
+  "ementa": "APROVA BALANÇO GERAL\n",
+  "envelopes": {},
+  "id": 927,
+  "local_destino": "Plenário",
+  "local_origem": "Secretaria Geral",
+  "materia_relacionada": [],
+  "materia_vinculada": [],
+  "midias": [
+    {
+      "created_at": "2020-10-07 13:58:20",
+      "file_name": "balanco-geral-2018.pdf",
+      "id": 1273,
+      "mime_type": "application/pdf",
+      "name": "balanco-geral-2018",
+      "size": 84950278,
+      "url": "https://nexlegis.s3.us-east-2.amazonaws.com/cliente/cm_inhumas/1273/balanco-geral-2018.pdf"
+    }
+  ],
+  "nome_materia": "Julgamento de Contas 004/2020",
+  "numero": "004",
+  "protocolo": null,
+  "relatores": [],
+  "sessoes": [],
+  "situacao": "Aprovada",
+  "slug": "julgamento-de-contas-004-2020",
+  "tipo": {
+    "descricao": "Julgamento de Contas",
+    "id": 211,
+    "max_turnos": 2
+  },
+  "tipo_id": 211,
+  "ultima_movimentacao": "2020-10-07",
+  "vereadores": [],
+  "votacoes": []
+}

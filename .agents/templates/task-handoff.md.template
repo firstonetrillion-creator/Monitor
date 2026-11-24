@@ -1,0 +1,12 @@
+# Task Handoff
+
+Use only for unfinished work that spans sessions. Keep durable architectural decisions in `docs/decisoes/ADR-*.md`.
+
+- **Objective and acceptance**: [requested outcome, active roadmap phase, and observable completion criteria]
+- **State checked**: [date, git status / modified files; never assume a clean tree]
+- **Completed**: [changes made and relevant file paths]
+- **Evidence**: [actual commands run (`pytest`, `ruff`, `npm run lint`, `playwright test`, `node scripts/validate-docs.mjs`), results, and timestamps]
+- **Remaining**: [smallest next action, dependencies, and known risks]
+- **Blockers**: [cause, pending human approval from `AGENTS.md`, and condition for resuming]
+- **Resources**: [running servers, ports (e.g. FastAPI 8000, Next.js 3000), PostgreSQL test state]
+- **Assumptions (`[SUPOSIÇÃO]`)**: [any assumption that still needs human confirmation]
