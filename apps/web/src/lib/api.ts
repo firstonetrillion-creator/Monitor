@@ -10,6 +10,7 @@ import type {
   DespesasResumoOut,
   DiariaOut,
   DuodecimoOut,
+  FolhaPagamentoOut,
   HealthOut,
   MateriaDetalheOut,
   MateriaResumoOut,
@@ -150,6 +151,16 @@ export const api = {
     vereador_id?: string;
     status_competencia?: string;
   }) => fetchApi<PaginacaoOut<CustoMandatoMensalOut>>("/transparencia/custo-mandato", params),
+  folha: (params?: {
+    page?: number;
+    per_page?: number;
+    ano?: number;
+    mes?: number;
+    vereador_id?: string;
+    gabinete_vereador_id?: string;
+    apenas_vereadores?: boolean;
+    q?: string;
+  }) => fetchApi<PaginacaoOut<FolhaPagamentoOut>>("/transparencia/folha", params),
   despesas: (params?: {
     page?: number;
     per_page?: number;

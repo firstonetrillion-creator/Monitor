@@ -363,4 +363,49 @@ test.describe("Cerrado Aberto — MVP Público (Homologação)", () => {
     await expect(page.getByText(/import httpx/i)).toBeVisible();
     await auditarPagina(page, isMobile ? "19-dados-abertos-mobile" : "19-dados-abertos-desktop");
   });
+
+  test("M. Folha de pagamento, catálogo de matérias, gabinete no vereador e filtros/CSV", async ({
+    page,
+    isMobile,
+  }) => {
+    await page.goto("/folha");
+    await expect(
+      page.getByRole("heading", { name: /Folha de Pagamento e Lotação \(2026\)/i }),
+    ).toBeVisible();
+    await expect(page.locator("table").getByText(/Outubro\/2026/i).first()).toBeVisible();
+    const dlFolhaPromise = page.waitForEvent("download");
+    await page.getByRole("button", { name: /Baixar CSV/i }).click();
+    const dlFolha = await dlFolhaPromise;
+    expect(dlFolha.suggestedFilename()).toBe("cerrado-aberto-folha-2026-pag-1.csv");
+    await auditarPagina(page);
+
+    await page.goto("/materias");
+    await expect(
+      page.getByRole("heading", { name: /Proposições e Matérias Legislativas/i }),
+    ).toBeVisible();
+    await expect(page.getByLabel(/Classificação ADR-005/i)).toBeVisible();
+    const dlMatPromise = page.waitForEvent("download");
+    await page.getByRole("button", { name: /Baixar CSV/i }).click();
+    const dlMat = await dlMatPromise;
+    expect(dlMat.suggestedFilename()).toBe("cerrado-aberto-materias-pag-1.csv");
+    await auditarPagina(page);
+
+    await page.goto("/vereadores/inhumas-go-ver-5");
+    await expect(
+      page.getByRole("heading", { name: /Pessoal lotado no gabinete \(Outubro\/2026\)/i }),
+    ).toBeVisible();
+    await expect(page.getByRole("link", { name: /Ver todas as proposições/i })).toBeVisible();
+    if (!isMobile) {
+      await page.goto("/diarias");
+      await expect(page.getByLabel(/Filtrar por vereador/i)).toBeVisible();
+      await expect(page.getByRole("button", { name: /Baixar CSV/i })).toBeVisible();
+
+      await page.goto("/bairros");
+      await expect(page.getByLabel(/Vereador\(a\) autor\(a\)/i)).toBeVisible();
+
+      await page.goto("/dados-abertos");
+      await expect(page.getByText("/api/v1/transparencia/folha?ano=2026&mes=10")).toBeVisible();
+      await expect(page.getByText("/api/v1/transparencia/declaracoes")).toBeVisible();
+    }
+  });
 });

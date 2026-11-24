@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { safeFetchApi } from "@/lib/api";
-import type { VereadorDetalheOut } from "@/lib/types";
+import type { FolhaPagamentoOut, PaginacaoOut, VereadorDetalheOut } from "@/lib/types";
 import {
   formatarBRL,
   formatarDataBR,
@@ -52,6 +52,17 @@ export default async function VereadorDetalhePage({
   const v = res.data;
   const custo = v.custo_estrutura_mandato_2026;
   const mandatoAtual = v.mandatos[0];
+  const folhaGabineteRes = custo
+    ? await safeFetchApi<PaginacaoOut<FolhaPagamentoOut>>("/transparencia/folha", {
+        ano: 2026,
+        mes: 10,
+        gabinete_vereador_id: v.vereador_id,
+        per_page: 50,
+      })
+    : null;
+  const servidoresGabinete = (folhaGabineteRes?.data?.items || []).filter(
+    (item) => !item.eh_vereador,
+  );
 
   return (
     <div className="space-y-8">
@@ -294,6 +305,69 @@ export default async function VereadorDetalhePage({
                 </tbody>
               </table>
             </div>
+
+            {/* Pessoal lotado no gabinete (Outubro/2026) */}
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 space-y-3">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <div>
+                  <h3 className="text-lg font-bold text-[var(--ink)]">
+                    Pessoal lotado no gabinete (Outubro/2026)
+                  </h3>
+                  <p className="text-xs text-[var(--ink-muted)]">
+                    Registros nominais da folha de pagamento (sem CPF completo, LGPD).
+                  </p>
+                </div>
+                <Link
+                  href={`/folha?gabinete_vereador_id=${encodeURIComponent(v.vereador_id)}`}
+                  className="text-xs font-semibold text-[var(--primary)] hover:underline"
+                >
+                  Ver histórico na Folha de Pagamento →
+                </Link>
+              </div>
+
+              {servidoresGabinete.length > 0 ? (
+                <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Servidores lotados no gabinete">
+                  <table className="w-full text-left text-sm border-collapse min-w-[600px]">
+                    <thead>
+                      <tr className="border-b border-[var(--border)] text-xs uppercase text-[var(--ink-muted)]">
+                        <th className="py-2 pr-3">Servidor(a)</th>
+                        <th className="py-2 pr-3">Cargo</th>
+                        <th className="py-2 pr-3">Vínculo / Folha</th>
+                        <th className="py-2 pr-3 text-right">Bruto</th>
+                        <th className="py-2 text-right">Líquido</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {servidoresGabinete.map((s) => (
+                        <tr key={s.folha_id} className="border-b border-[var(--border)]/60">
+                          <td className="py-2.5 pr-3 font-medium text-[var(--ink)]">{s.nome_servidor}</td>
+                          <td className="py-2.5 pr-3 text-xs text-[var(--ink-muted)]">{s.cargo}</td>
+                          <td className="py-2.5 pr-3 text-xs text-[var(--ink-muted)]">
+                            {s.tipo_admissao || "—"} · {s.tipo_folha}
+                          </td>
+                          <td className="py-2.5 pr-3 text-right tabular-nums">
+                            {formatarBRL(s.remuneracao_bruta, "—")}
+                          </td>
+                          <td className="py-2.5 text-right font-semibold tabular-nums">
+                            {formatarBRL(s.remuneracao_liquida, "—")}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : custo.competencias_lacuna_parcial > 0 ? (
+                <EstadoAusente
+                  tom="aviso"
+                  titulo="Lotação de gabinete indisponível separadamente (Presidência)"
+                  descricao="Na folha publicada, os assessores vinculados à Presidência constam na unidade institucional PRESIDENCIA, sem separação de gabinete parlamentar."
+                />
+              ) : (
+                <p className="text-sm text-[var(--ink-muted)] italic">
+                  Nenhum assessor vinculado a este gabinete na competência de Outubro/2026.
+                </p>
+              )}
+            </div>
           </div>
         )}
       </section>
@@ -301,15 +375,23 @@ export default async function VereadorDetalhePage({
       {/* Proposições e Votos */}
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 space-y-4">
-          <div>
-            <h2 className="text-xl font-bold text-[var(--ink)]">
-              Proposições apresentadas
-            </h2>
-            <p className="mt-1 text-xs text-[var(--ink-muted)]">
-              2026: <strong>{v.total_proposicoes_parlamentares_2026}</strong> · 2025:{" "}
-              <strong>{v.total_proposicoes_parlamentares_2025}</strong>.{" "}
-              {v.nota_metodologica_producao}
-            </p>
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <div>
+              <h2 className="text-xl font-bold text-[var(--ink)]">
+                Proposições apresentadas
+              </h2>
+              <p className="mt-1 text-xs text-[var(--ink-muted)]">
+                2026: <strong>{v.total_proposicoes_parlamentares_2026}</strong> · 2025:{" "}
+                <strong>{v.total_proposicoes_parlamentares_2025}</strong>.{" "}
+                {v.nota_metodologica_producao}
+              </p>
+            </div>
+            <Link
+              href={`/materias?vereador_id=${encodeURIComponent(v.vereador_id)}`}
+              className="text-xs font-semibold text-[var(--primary)] hover:underline"
+            >
+              Ver todas as proposições →
+            </Link>
           </div>
 
           {v.proposicoes_recentes.length === 0 ? (

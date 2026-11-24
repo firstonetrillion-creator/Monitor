@@ -20,6 +20,8 @@ const NAV_LINKS_DESKTOP = [
 
 const NAV_LINKS_MOBILE = [
   ...NAV_LINKS_DESKTOP,
+  { href: "/materias", label: "Proposições" },
+  { href: "/folha", label: "Folha de Pagamento" },
   { href: "/custo-mandato", label: "Custo do Mandato" },
   { href: "/diarias", label: "Diárias" },
   { href: "/como-calculamos", label: "Como Calculamos" },

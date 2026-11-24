@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { Download, ExternalLink, MapPin, Table2 } from "lucide-react";
-import type { BairroDetalheOut, BairrosPainelOut } from "@/lib/types";
+import type { BairroDetalheOut, BairrosPainelOut, VereadorResumoOut } from "@/lib/types";
 import { api } from "@/lib/api";
 import { baixarCsvNoNavegador } from "@/lib/csv";
 import { formatarDataBR, formatarInteiro } from "@/lib/format";
@@ -12,16 +12,20 @@ import { MapaBairrosSvg } from "./MapaBairrosSvg";
 interface BairrosClientProps {
   painelInicial: BairrosPainelOut;
   detalheInicial: BairroDetalheOut | null;
+  vereadores: VereadorResumoOut[];
 }
 
-export function BairrosClient({ painelInicial, detalheInicial }: BairrosClientProps) {
+export function BairrosClient({ painelInicial, detalheInicial, vereadores }: BairrosClientProps) {
   const [painel, setPainel] = useState<BairrosPainelOut>(painelInicial);
   const [detalhe, setDetalhe] = useState<BairroDetalheOut | null>(detalheInicial);
   const [ano, setAno] = useState<string>("");
   const [tema, setTema] = useState<string>("");
+  const [vereadorId, setVereadorId] = useState<string>("");
   const [buscaBairro, setBuscaBairro] = useState("");
   const [mostrarTabela, setMostrarTabela] = useState(false);
   const [isPending, startTransition] = useTransition();
+
+  const vereadorSelecionado = vereadores.find((v) => v.vereador_id === vereadorId) || null;
 
   const bairrosFiltrados = painel.bairros.filter((b) =>
     !buscaBairro.trim()
@@ -30,13 +34,15 @@ export function BairrosClient({ painelInicial, detalheInicial }: BairrosClientPr
         b.regiao.toLowerCase().includes(buscaBairro.trim().toLowerCase()),
   );
 
-  function aplicarFiltros(novoAno: string, novoTema: string) {
+  function aplicarFiltros(novoAno: string, novoTema: string, novoVereadorId: string) {
     setAno(novoAno);
     setTema(novoTema);
+    setVereadorId(novoVereadorId);
     startTransition(async () => {
       const novoPainel = await api.bairros({
         ano: novoAno ? Number(novoAno) : undefined,
         tema: novoTema || undefined,
+        vereador_id: novoVereadorId || undefined,
       });
       setPainel(novoPainel);
       const slugAlvo =
@@ -47,6 +53,7 @@ export function BairrosClient({ painelInicial, detalheInicial }: BairrosClientPr
         const novoDet = await api.bairro(slugAlvo, {
           ano: novoAno ? Number(novoAno) : undefined,
           tema: novoTema || undefined,
+          per_page: novoVereadorId ? 50 : 20,
         });
         setDetalhe(novoDet);
       } else {
@@ -60,6 +67,7 @@ export function BairrosClient({ painelInicial, detalheInicial }: BairrosClientPr
       const novoDet = await api.bairro(slug, {
         ano: ano ? Number(ano) : undefined,
         tema: tema || undefined,
+        per_page: vereadorId ? 50 : 20,
       });
       setDetalhe(novoDet);
     });
@@ -129,7 +137,7 @@ export function BairrosClient({ painelInicial, detalheInicial }: BairrosClientPr
             <select
               id="bairro-ano"
               value={ano}
-              onChange={(e) => aplicarFiltros(e.target.value, tema)}
+              onChange={(e) => aplicarFiltros(e.target.value, tema, vereadorId)}
               className="rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 py-2 text-sm"
             >
               <option value="">2025 e 2026</option>
@@ -144,13 +152,31 @@ export function BairrosClient({ painelInicial, detalheInicial }: BairrosClientPr
             <select
               id="bairro-tema"
               value={tema}
-              onChange={(e) => aplicarFiltros(ano, e.target.value)}
+              onChange={(e) => aplicarFiltros(ano, e.target.value, vereadorId)}
               className="rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 py-2 text-sm"
             >
               <option value="">Todos os temas</option>
               {painel.temas_disponiveis.map((t) => (
                 <option key={t.tema} value={t.tema}>
                   {t.tema} ({t.quantidade})
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="bairro-vereador" className="block text-xs font-semibold text-[var(--ink-muted)] mb-1">
+              Vereador(a) autor(a)
+            </label>
+            <select
+              id="bairro-vereador"
+              value={vereadorId}
+              onChange={(e) => aplicarFiltros(ano, tema, e.target.value)}
+              className="rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 py-2 text-sm"
+            >
+              <option value="">Todos os vereadores</option>
+              {vereadores.map((v) => (
+                <option key={v.vereador_id} value={v.vereador_id}>
+                  {v.nome_exibicao}
                 </option>
               ))}
             </select>
@@ -334,8 +360,29 @@ export function BairrosClient({ painelInicial, detalheInicial }: BairrosClientPr
                 </div>
               )}
 
+              {vereadorSelecionado && (
+                <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-[var(--surface-alt)] px-3 py-2 text-xs text-[var(--ink-muted)]">
+                  <span>
+                    Exibindo proposições de{" "}
+                    <strong className="text-[var(--ink)]">{vereadorSelecionado.nome_exibicao}</strong>{" "}
+                    para {detalhe.bairro.nome_oficial}.
+                  </span>
+                  <Link
+                    href={`/materias?vereador_id=${encodeURIComponent(vereadorSelecionado.vereador_id)}`}
+                    className="font-semibold text-[var(--primary)] hover:underline"
+                  >
+                    Ver todas no catálogo →
+                  </Link>
+                </div>
+              )}
+
               <ul className="space-y-3">
-                {detalhe.proposicoes.map((p) => (
+                {(vereadorSelecionado
+                  ? detalhe.proposicoes.filter((p) =>
+                      p.autores_nomes.includes(vereadorSelecionado.nome_exibicao),
+                    )
+                  : detalhe.proposicoes
+                ).map((p) => (
                   <li
                     key={p.proposicao_id}
                     className="rounded-xl border border-[var(--border)] bg-[var(--bg)] p-4 space-y-1.5"

@@ -96,3 +96,92 @@ h3,
   left: 0.5rem;
   top: 0.5rem;
 }
+
+/* Garante contraste alto nos tooltips (Plot.tip) e halos do Observable Plot em modo claro, escuro e alto contraste */
+.plot-chart-canvas svg,
+.plot-chart-canvas figure {
+  --plot-background: var(--surface);
+  color: var(--ink);
+}
+
+@media (forced-colors: active) {
+  .plot-chart-canvas svg,
+  .plot-chart-canvas figure {
+    --plot-background: Canvas;
+    color: CanvasText;
+  }
+}
+
+/* Tabela responsiva acessível (sticky headers em desktop e cartões em @container estreito) */
+.responsive-table-wrapper {
+  overflow-x: auto;
+  max-inline-size: 100%;
+  container-type: inline-size;
+}
+
+.responsive-table-wrapper table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.responsive-table-wrapper thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 2;
+  background: var(--surface);
+}
+
+.responsive-table-wrapper tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 1;
+  background: var(--surface);
+  text-align: left;
+}
+
+@container (width < 640px) {
+  .responsive-table-wrapper table,
+  .responsive-table-wrapper thead,
+  .responsive-table-wrapper tbody,
+  .responsive-table-wrapper tr,
+  .responsive-table-wrapper th,
+  .responsive-table-wrapper td {
+    display: block;
+  }
+
+  .responsive-table-wrapper table {
+    min-width: 0 !important;
+  }
+
+  .responsive-table-wrapper thead {
+    display: none;
+  }
+
+  .responsive-table-wrapper tr {
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    margin-block-end: 0.75rem;
+    padding: 0.75rem;
+    background: var(--surface);
+  }
+
+  .responsive-table-wrapper tbody th {
+    position: static;
+    background: var(--surface-alt);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    margin-block-end: 0.5rem;
+  }
+
+  .responsive-table-wrapper td {
+    text-align: start;
+    padding-block: 0.25rem;
+    padding-inline: 0;
+  }
+
+  .responsive-table-wrapper td[data-label]::before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+}

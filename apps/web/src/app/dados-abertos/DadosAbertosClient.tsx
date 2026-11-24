@@ -48,18 +48,25 @@ console.table(dados.items.map((l) => ({ numero: l.numero, ano: l.ano, categoria:
 const ENDPOINTS_CATALOGO = [
   { grupo: "Observabilidade", rota: "/api/v1/health", desc: "Status do banco, contagens por tabela, última coleta por fonte e lacunas documentadas." },
   { grupo: "Busca e Território", rota: "/api/v1/busca?q=asfalto", desc: "Busca avançada unificada (Full-Text Search em português) em proposições, leis, vereadores, sessões e despesas." },
-  { grupo: "Busca e Território", rota: "/api/v1/bairros", desc: "Painel de indicações e requerimentos por bairro/distrito de Inhumas, com filtro por ano e tema." },
+  { grupo: "Busca e Território", rota: "/api/v1/bairros", desc: "Painel de indicações e requerimentos por bairro/distrito de Inhumas, com filtro por ano, tema e vereador." },
   { grupo: "Busca e Território", rota: "/api/v1/bairros/centro", desc: "Detalhe completo das proposições vinculadas a um bairro específico com trecho de evidência." },
   { grupo: "Legislação", rota: "/api/v1/legislacao", desc: "Catálogo pesquisável das leis municipais cadastradas desde 1990 com link canônico oficial." },
   { grupo: "Legislação", rota: "/api/v1/legislacao/3577", desc: "Detalhe de uma lei com resumo automático, status de extração/OCR e hash SHA-256." },
   { grupo: "Comparativo Regional", rota: "/api/v1/comparativo?ano=2025", desc: "Despesa da Função 01 (Legislativa) de Inhumas e 7 municípios pares de Goiás (SICONFI/STN)." },
   { grupo: "Legislativo (Nexlegis)", rota: "/api/v1/vereadores", desc: "Lista paginada de vereadores com aliases, mandatos e indicadores de 2025–2026." },
+  { grupo: "Legislativo (Nexlegis)", rota: "/api/v1/vereadores/inhumas-go-ver-5", desc: "Perfil completo do parlamentar: presenças, produção por tipo, votos nominais e Custo da Estrutura do Mandato." },
   { grupo: "Legislativo (Nexlegis)", rota: "/api/v1/sessoes", desc: "Sessões plenárias, presenças, pautas e votações nominais." },
-  { grupo: "Legislativo (Nexlegis)", rota: "/api/v1/materias", desc: "Proposições legislativas com separação ADR-005 (parlamentares vs. administrativas)." },
+  { grupo: "Legislativo (Nexlegis)", rota: "/api/v1/sessoes/inhumas-go-sessao-1035", desc: "Detalhe completo de uma sessão plenária (presenças, pauta, votos nominais e resumo automático)." },
+  { grupo: "Legislativo (Nexlegis)", rota: "/api/v1/materias", desc: "Proposições legislativas com filtros e separação ADR-005 (parlamentares vs. administrativas)." },
+  { grupo: "Legislativo (Nexlegis)", rota: "/api/v1/materias/inhumas-go-prop-2786", desc: "Detalhe de uma matéria com tramitações, deliberações em sessão e resumo automático." },
   { grupo: "Boletins (Fase 4)", rota: "/api/v1/boletins/resumo-semanal", desc: "Resumo automático da sessão mais recente, alerta WhatsApp (<=400 chars) e slides Instagram." },
-  { grupo: "Finanças (Transparência)", rota: "/api/v1/transparencia/despesas/resumo?ano=2026", desc: "Somatório reconciliado por estágio, por elemento e por fornecedor Pessoa Jurídica." },
   { grupo: "Finanças (Transparência)", rota: "/api/v1/transparencia/custo-mandato?ano=2026", desc: "Custo da Estrutura do Mandato com preservação estrita de NULL." },
+  { grupo: "Finanças (Transparência)", rota: "/api/v1/transparencia/folha?ano=2026&mes=10", desc: "Folha de pagamento nominal mensal (sem CPF completo, LGPD) com lotação por gabinete ou setor." },
+  { grupo: "Finanças (Transparência)", rota: "/api/v1/transparencia/despesas?ano=2026", desc: "Lista paginada de empenhos de despesa com filtros por período, favorecido e elemento." },
+  { grupo: "Finanças (Transparência)", rota: "/api/v1/transparencia/despesas/resumo?ano=2026", desc: "Somatório reconciliado por estágio, por elemento e por fornecedor Pessoa Jurídica." },
+  { grupo: "Finanças (Transparência)", rota: "/api/v1/transparencia/diarias?ano=2026", desc: "Diárias identificadas no cruzamento contábil do Elemento 14 com filtro por vereador." },
   { grupo: "Finanças (Transparência)", rota: "/api/v1/transparencia/duodecimo?ano=2026", desc: "Repasses de duodécimo e devoluções à Prefeitura em 2026." },
+  { grupo: "Finanças (Transparência)", rota: "/api/v1/transparencia/declaracoes", desc: "Declarações oficiais de inexistência de cota parlamentar (CEAP) e não concessão de diárias." },
 ];
 
 export function DadosAbertosClient() {
@@ -97,6 +104,9 @@ export function DadosAbertosClient() {
           <p className="text-sm text-[var(--ink)]">
             Prefere planilha? Baixe CSV pronto em{" "}
             <Link href="/despesas" className="underline text-[var(--primary)]">Despesas</Link>,{" "}
+            <Link href="/folha" className="underline text-[var(--primary)]">Folha</Link>,{" "}
+            <Link href="/diarias" className="underline text-[var(--primary)]">Diárias</Link>,{" "}
+            <Link href="/materias" className="underline text-[var(--primary)]">Proposições</Link>,{" "}
             <Link href="/bairros" className="underline text-[var(--primary)]">Bairros</Link>,{" "}
             <Link href="/legislacao" className="underline text-[var(--primary)]">Leis</Link> e{" "}
             <Link href="/comparativo" className="underline text-[var(--primary)]">Comparativo</Link>.

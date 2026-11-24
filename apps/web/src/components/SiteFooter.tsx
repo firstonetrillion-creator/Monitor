@@ -80,6 +80,21 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/materias" className="underline hover:text-[var(--primary)]">
+                Proposições e matérias legislativas
+              </Link>
+            </li>
+            <li>
+              <Link href="/folha" className="underline hover:text-[var(--primary)]">
+                Folha de pagamento e lotação (2026)
+              </Link>
+            </li>
+            <li>
+              <Link href="/diarias" className="underline hover:text-[var(--primary)]">
+                Diárias e Elemento 14 (2026)
+              </Link>
+            </li>
+            <li>
               <Link href="/dados-abertos" className="underline hover:text-[var(--primary)]">
                 API Pública e Dados Abertos (JSON / CSV)
               </Link>

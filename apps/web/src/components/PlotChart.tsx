@@ -126,7 +126,7 @@ export function PlotChart({
         <div
           ref={containerRef}
           tabIndex={0}
-          className="mt-4 w-full overflow-x-auto text-xs [&_svg]:max-w-full [&_svg]:h-auto"
+          className="plot-chart-canvas mt-4 w-full overflow-x-auto text-xs [&_svg]:max-w-full [&_svg]:h-auto"
           role="img"
           aria-label={`${titulo}. ${descricao}. Use o botão 'Ver dados em tabela' para ler os valores exatos.`}
         />

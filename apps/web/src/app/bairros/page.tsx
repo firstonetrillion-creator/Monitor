@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { safeFetchApi } from "@/lib/api";
-import type { BairroDetalheOut, BairrosPainelOut } from "@/lib/types";
+import type {
+  BairroDetalheOut,
+  BairrosPainelOut,
+  PaginacaoOut,
+  VereadorResumoOut,
+} from "@/lib/types";
 import { EstadoAusente } from "@/components/EstadoAusente";
 import { BairrosClient } from "./BairrosClient";
 
@@ -13,7 +18,13 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function BairrosPage() {
-  const { data: painel, error } = await safeFetchApi<BairrosPainelOut>("/bairros");
+  const [{ data: painel, error }, vereadoresRes] = await Promise.all([
+    safeFetchApi<BairrosPainelOut>("/bairros"),
+    safeFetchApi<PaginacaoOut<VereadorResumoOut>>("/vereadores", {
+      apenas_legislatura_atual: true,
+      per_page: 50,
+    }),
+  ]);
   if (!painel) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-10">
@@ -31,6 +42,10 @@ export default async function BairrosPage() {
     detalheInicial = det.data;
   }
 
+  const vereadoresOrdenados = [...(vereadoresRes.data?.items || [])].sort((a, b) =>
+    a.nome_exibicao.localeCompare(b.nome_exibicao, "pt-BR"),
+  );
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 sm:py-10 space-y-6">
       <header className="space-y-2">
@@ -47,7 +62,11 @@ export default async function BairrosPage() {
         </p>
       </header>
 
-      <BairrosClient painelInicial={painel} detalheInicial={detalheInicial} />
+      <BairrosClient
+        painelInicial={painel}
+        detalheInicial={detalheInicial}
+        vereadores={vereadoresOrdenados}
+      />
     </div>
   );
 }
